@@ -111,6 +111,8 @@ var total = 0;
 for (var i = 0; i < onlyNumbers.length; i++ ) {
   total += onlyNumbers[i]
 }
+
+// prints the total
 console.log("Total: $" + total);
 
 
@@ -127,5 +129,37 @@ for (var i = 0; i < difference.length; i++ ) {
 
 // works out the average and rounds it to 2 decimal places
 var change = totalAvg/(finances.length - 1);
-var changeRounded = change.toFixed(2)
+var changeRounded = change.toFixed(2);
 console.log("Average Change: " + changeRounded);
+
+
+//------ Greatest increase calculation ---------
+
+// converts flattened version of original array to string only
+var onlyString = flattenedArray.filter(
+  element => typeof element === 'string'
+);
+
+//goes through each value and stores the highest
+var greatestIncrease = 0;
+for(var i = 0; i < difference.length; i++){
+  if(difference[i] > greatestIncrease){
+    greatestIncrease = difference[i]
+  }
+}
+
+// gets the value from the string array with the corresponding index number to the highest amount in the differences array
+var index = difference.indexOf(greatestIncrease);
+var date = onlyString[index+1];
+
+// prints the date and greatest increase
+console.log("Greatest Increase in Profits/Losses: " + date + " ($" + greatestIncrease + ")");
+
+
+
+
+
+
+
+
+
