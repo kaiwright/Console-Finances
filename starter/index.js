@@ -87,14 +87,16 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-// --------------Header ----------------
+// -------------- Header ----------------
 console.log("Financial Analysis");
 console.log("-------------------------------------------");
 
-//---------Total months calculation----------
+
+//--------- Total months calculation ----------
 console.log("Total Months: " + finances.length);
 
-//---------Net total calculation --------- 
+
+//--------- Net total calculation --------- 
 
 // flatten the array
 var flattenedArray = finances.flat()
@@ -110,3 +112,20 @@ for (var i = 0; i < onlyNumbers.length; i++ ) {
   total += onlyNumbers[i]
 }
 console.log("Total: $" + total);
+
+
+//------ Average Changes calculation -------
+
+// Uses slice to return array values, with map making a new array with the results of calling the function on each
+var difference = onlyNumbers.slice(1).map((x,i) => x-onlyNumbers[i]);
+
+// adds all of the differences in the new array 
+var totalAvg = 0;
+for (var i = 0; i < difference.length; i++ ) {
+  totalAvg += difference[i];
+}
+
+// works out the average and rounds it to 2 decimal places
+var change = totalAvg/(finances.length - 1);
+var changeRounded = change.toFixed(2)
+console.log("Average Change: " + changeRounded);
