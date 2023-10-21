@@ -87,6 +87,26 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-console.log("Financial Analysis")
-console.log("-------------------------------------------")
-console.log("Total Months: " + finances.length)
+// --------------Header ----------------
+console.log("Financial Analysis");
+console.log("-------------------------------------------");
+
+//---------Total months calculation----------
+console.log("Total Months: " + finances.length);
+
+//---------Net total calculation --------- 
+
+// flatten the array
+var flattenedArray = finances.flat()
+
+// filter to have only numbers
+var onlyNumbers = flattenedArray.filter(
+  element => typeof element === 'number'
+);
+
+//calculate total
+var total = 0;
+for (var i = 0; i < onlyNumbers.length; i++ ) {
+  total += onlyNumbers[i]
+}
+console.log("Total: $" + total);
