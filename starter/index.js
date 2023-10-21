@@ -155,6 +155,22 @@ var date = onlyString[index+1];
 // prints the date and greatest increase
 console.log("Greatest Increase in Profits/Losses: " + date + " ($" + greatestIncrease + ")");
 
+// ------- Greatest decrease calculation -------
+
+//goes through each value and stores the lowest
+var greatestDecrease = 0;
+for(var i = 0; i < difference.length; i++){
+  if(difference[i] < greatestDecrease){
+    greatestDecrease = difference[i]
+  }
+}
+
+// gets the value from the string array with the corresponding index number to the lowest amount in the differences array
+var index = difference.indexOf(greatestDecrease);
+var date = onlyString[index+1];
+
+// prints the date and greatest decrease
+console.log("Greatest Decrease in Profits/Losses: " + date + " ($" + greatestDecrease + ")");
 
 
 
